@@ -35,7 +35,7 @@ function convertBackNeg(val) {
 };
 
 function removeBracketsFromArray(array){
-    // deletes ( or ) from operand array since regex grabs them
+    // deletes ( and ) and . from operand array since regex grabs them
     // and it screws up the operation function
     let newArray = [];
     for (let j = 0; j<array.length;j++) {
@@ -219,6 +219,7 @@ function handleOperation(e) {
         break
 
         default:
+            console.log("adding digit?");
             updateInput(e);
             break
     };
@@ -229,13 +230,46 @@ function updateInput(e) {
     console.log("Updating input");
     const inputP = document.querySelector("#calculatorInput_p");
     const outputP = document.querySelector("#calculatorOutput_p");
-    // if there is a value in the output, then clear it and add new input
-    if (outputP.textContent.length > 0) {
-        inputP.textContent = outputP.textContent + e.target.textContent;  
-        clearOutput();
-        return null;
+    
+    switch (e.target.textContent) {
+        case "0":
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+        case ".":
+        // if there is a value in the output, then clear it and add new input
+        if (outputP.textContent.length > 0) {
+            inputP.textContent = outputP.textContent + e.target.textContent;  
+            clearOutput();
+            return null;
+        };
+        
+        var separators = ['+', '*', '\\/','-'];
+        let splitVariablesList = inputP.textContent.split(new RegExp('[' + separators.join('') + ']', 'g'));
+        let lastVariable = splitVariablesList[splitVariablesList.length - 1];
+        // if . (decimal point) is present within the last 5 digits, do add another .
+        // add numbers but a max of 4 after
+        if (lastVariable.indexOf(".") > -1) {
+            if (e.target.textContent === ".") {
+                return null
+            };
+            if ((lastVariable.length - lastVariable.indexOf(".")) > 5) {
+                return null;
+            };
+        };
+        inputP.textContent += e.target.textContent;
+        break
+
+    default:
+        inputP.textContent += e.target.textContent;
+        break
     };
-     inputP.textContent += e.target.textContent;
 };
 
 function deleteInput(e) {
@@ -305,10 +339,12 @@ class operation {
 
 function createNumberButtons() {
     const calculatorButtons_numbers = document.querySelector("#calculatorButtons_numbers")
-    for (let i=1;i < 11 ;i++) {
+    for (let i=1;i < 12 ;i++) {
         let numberButton = document.createElement("a");
         if (i === 10) {
             numberButton.textContent = 0;
+        } else if (i === 11) {
+            numberButton.textContent = ".";
         } else {
             numberButton.textContent = i;
         }
