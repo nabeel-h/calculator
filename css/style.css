@@ -1,0 +1,115 @@
+#container {
+    display: flex;
+    justify-content: center;
+
+}
+
+#calculator {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 400px;
+    width: 400px;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#calculatorInput {
+    height: 20%;
+    width: 95%;
+    background-color: lightgray;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    border-bottom: solid;   
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+#calculatorOutput {
+    height: 20%;
+    width: 95%;
+    background-color: lightcyan;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+#calculatorInput_p{
+    color:black;
+    font-size: 30px;
+    text-align: center;
+    padding-right: 5px;
+}
+
+#calculatorOutput_p {
+    color:black;
+    font-size: 30px;
+    text-align: center;
+    padding-right: 5px;
+}
+
+
+
+#calculatorButtons {
+    margin-top:5px;
+    height: 60%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+}
+
+#calculatorButtons_numbers {
+    padding-right: 2px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-right: solid;
+    align-items: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+#calculatorButtons_operators {
+    margin-left: 2px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    flex-wrap: nowrap;
+}
+
+#calculatorButtons_numbers > a {
+    margin: 2px auto;
+    flex: 1 0 30%;
+    text-align: center;
+    height: 20%;
+    line-height: 50px;
+}
+
+#calculatorButtons_operators > a {
+    margin: 1px auto;
+    flex: 1 0 5%;
+    text-align: center;
+    width:100%;
+    padding-top: 5px;
+}
+
+#calculatorButtons_operators a:hover {
+    background-color: red;
+}
+
+#calculatorButtons_numbers a:hover {
+    background-color: red
+}
