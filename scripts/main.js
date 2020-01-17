@@ -39,7 +39,7 @@ function removeBracketsFromArray(array){
     // and it screws up the operation function
     let newArray = [];
     for (let j = 0; j<array.length;j++) {
-        if (array[j] == "(" || array[j] === ")") {
+        if (array[j] == "(" || array[j] === ")" || array[j] === ".") {
             continue;
         };
         newArray.push(array[j]);
