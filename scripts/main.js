@@ -202,6 +202,17 @@ function handleOperation(e) {
             updateOutput(returnResult); 
             return null;
         } else {
+            // if value in output and an operator is used, take value and put it in input with operator
+            // and delete the output data
+            if (outputP.textContent != "") {
+                console.log("stuff");
+                console.log(outputP.textContent);
+                console.log(e.target.textContent);
+                inputP.textContent = (outputP.textContent + e.target.textContent);
+                clearOutput();
+                return null;
+            };
+
             // if last charachter in string is an operator and user presses another operator
             // replace that operator with the new one
             // UNLESS operator is - then add -1 ??
