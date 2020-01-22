@@ -88,6 +88,7 @@
     align-items: center;
     align-content: space-between;
     flex-wrap: nowrap;
+    background-color: orange;
 }
 
 #calculatorButtons_numbers > a {
@@ -96,14 +97,19 @@
     text-align: center;
     height: 20%;
     line-height: 50px;
+    color: black;
+    border: solid;
+    border-color: grey;
 }
 
 #calculatorButtons_operators > a {
     margin: 1px auto;
     flex: 1 0 5%;
     text-align: center;
-    width:100%;
+    width: 100%;
     padding-top: 5px;
+    border-bottom: solid;
+    border-color: grey;
 }
 
 #calculatorButtons_operators a:hover {
